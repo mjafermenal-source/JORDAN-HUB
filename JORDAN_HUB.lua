@@ -30,3 +30,61 @@ Title.TextScaled = true
 Title.Parent = Frame
 
 ScreenGui.Parent = player:WaitForChild("PlayerGui")
+
+local SpeedButton = CreateButton("SPEED", 200)
+
+
+-- SPEED FUNCTION
+
+local SPEED_VALUE = 50
+local normalSpeed = 16
+local speedEnabled = false
+
+SpeedButton.MouseButton1Click:Connect(function()
+
+    local character = player.Character
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+
+    if not humanoid then return end
+
+    speedEnabled = not speedEnabled
+
+    if speedEnabled then
+        humanoid.WalkSpeed = SPEED_VALUE
+        SpeedButton.Text = "SPEED: ON"
+    else
+        humanoid.WalkSpeed = normalSpeed
+        SpeedButton.Text = "SPEED: OFF"
+    end
+
+end)
+
+local JumpButton = CreateButton("JUMP BOOST", 130)
+
+-- JUMP BOOST FUNCTION
+
+local normalJump = 50
+local boostedJump = 100
+local jumpEnabled = false
+
+JumpButton.MouseButton1Click:Connect(function()
+
+    local character = player.Character
+    local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+
+    if not humanoid then return end
+
+    jumpEnabled = not jumpEnabled
+
+    humanoid.UseJumpPower = true
+
+    if jumpEnabled then
+        humanoid.JumpPower = boostedJump
+        JumpButton.Text = "JUMP: ON"
+    else
+        humanoid.JumpPower = normalJump
+        JumpButton.Text = "JUMP: OFF"
+    end
+
+end)
+
