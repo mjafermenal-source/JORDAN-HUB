@@ -88,3 +88,32 @@ JumpButton.MouseButton1Click:Connect(function()
 
 end)
 
+local Frame = Instance.new("Frame")
+
+
+-- OPEN / CLOSE BUTTON
+
+local ToggleButton = Instance.new("TextButton")
+ToggleButton.Name = "OpenClose"
+ToggleButton.Size = UDim2.new(0, 110, 0, 40)
+ToggleButton.Position = UDim2.new(0, 15, 0.5, 0)
+ToggleButton.BackgroundColor3 = Color3.fromRGB(90, 0, 150)
+ToggleButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+ToggleButton.Text = "CLOSE"
+ToggleButton.TextScaled = true
+ToggleButton.Parent = ScreenGui
+
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
+
+
+ToggleButton.MouseButton1Click:Connect(function()
+
+    Frame.Visible = not Frame.Visible
+
+    if Frame.Visible then
+        ToggleButton.Text = "CLOSE"
+    else
+        ToggleButton.Text = "OPEN"
+    end
+
+end)
