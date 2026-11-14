@@ -3,8 +3,30 @@
 -- Created by Jordan
 -- Version 1.0
 
-local HubName = "JORDAN HUB"
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 
-print("Loading " .. HubName)
-print("Welcome to Jordan Hub!")
-print("Purple Neon Edition")
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "JordanHub"
+ScreenGui.ResetOnSpawn = false
+
+local Frame = Instance.new("Frame")
+Frame.Name = "Main"
+Frame.Size = UDim2.new(0, 250, 0, 300)
+Frame.Position = UDim2.new(0.5, -125, 0.5, -150)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 8, 25)
+Frame.Parent = ScreenGui
+
+local Corner = Instance.new("UICorner")
+Corner.CornerRadius = UDim.new(0, 12)
+Corner.Parent = Frame
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, 0, 0, 50)
+Title.BackgroundColor3 = Color3.fromRGB(65, 0, 110)
+Title.Text = "JORDAN HUB"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.Parent = Frame
+
+ScreenGui.Parent = player:WaitForChild("PlayerGui")
